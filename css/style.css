@@ -19,6 +19,29 @@
   overflow-x: hidden;
   position: relative;
 }
+.container .buttonTop {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--color-text-banner);
+  right: -50%;
+  z-index: 10;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+.container .buttonTop i {
+  color: var(--white--);
+}
+.container .buttonTop.show {
+  right: 10px;
+  transition: 0.5s ease;
+}
 .container header.header {
   width: 100%;
   z-index: 1;
@@ -154,8 +177,22 @@
   max-width: 1000px;
   margin: 0px auto;
 }
+.container section.kategoriDetail .container__kategoriDetail .tabs {
+  font-family: "Poppins", sans-serif;
+}
+.container section.kategoriDetail .container__kategoriDetail .tabs span {
+  display: inline-block;
+  font-size: 12px;
+}
+.container section.kategoriDetail .container__kategoriDetail h1 {
+  margin: 20px;
+  font-family: "Poppins", sans-serif;
+  color: var(--color-text-banner);
+}
 .container section.kategoriDetail .container__kategoriDetail .row__kategoriDetail {
+  border-top: 1px solid var(--color-text-banner);
   display: flex;
+  padding: 20px 0px;
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
@@ -223,9 +260,26 @@
   max-width: 1200px;
   margin: 30px auto;
 }
+.container section.detail .containerDetail .tabs {
+  font-family: "Poppins", sans-serif;
+  margin: 0px 50px;
+}
+.container section.detail .containerDetail .tabs span {
+  display: inline-block;
+  font-size: 12px;
+}
+.container section.detail .containerDetail h1 {
+  margin: 20px 50px;
+  font-family: "Poppins", sans-serif;
+  color: var(--color-text-banner);
+}
 .container section.detail .containerDetail .row_detail {
+  margin: 0px auto;
+  width: 90%;
+  border-top: 1px solid var(--color-text-banner);
+  padding: 20px 0px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
 }
 .container section.detail .containerDetail .row_detail .box__detail {
@@ -435,6 +489,13 @@
   }
   .container section.kategoriDetail .container__kategoriDetail {
     width: 100%;
+    padding: 0px 10px;
+  }
+  .container section.kategoriDetail .container__kategoriDetail .tabs {
+    margin-top: 10px;
+  }
+  .container section.kategoriDetail .container__kategoriDetail h1 {
+    margin-left: 0;
   }
   .container section.kategoriDetail .container__kategoriDetail .row__kategoriDetail {
     margin-top: 20px;
@@ -451,7 +512,15 @@
   .container section.detail .containerDetail {
     width: 100%;
   }
+  .container section.detail .containerDetail .tabs {
+    margin-top: 10px;
+    margin-left: 0px;
+  }
+  .container section.detail .containerDetail h1 {
+    margin-left: 0px;
+  }
   .container section.detail .containerDetail .row_detail {
+    width: 100%;
     flex-direction: column;
   }
   .container section.detail .containerDetail .row_detail .box__detail {

@@ -65,9 +65,12 @@ $(document).ready(function () {
         let MulaiIndex = kondisiPage * pageDitampilkan;
         let akhirIndex = MulaiIndex + pageDitampilkan;
         let tampilMeals = meals.slice(MulaiIndex, akhirIndex);
+        $('.tabs_text').text(`${getLocalStorage()}`);
+        $('.title_kategoriDetail').text(`${getLocalStorage()} Meals`);
         tampilMeals.forEach((item) => {
           let { strMealThumb, idMeal, strMeal } = item;
-          let contentKategoriDetail = ` <div class="box__kategoriDetail">
+          let contentKategoriDetail = ` 
+                                      <div class="box__kategoriDetail">
                                         <img src="${strMealThumb}" alt="">
                                         <div class="box_opacity_kategori_detail">
                                           <a class="detail" id="${idMeal}" href="Details.html">${strMeal}</a>
@@ -102,11 +105,6 @@ $(document).ready(function () {
     $('.loadMore').css('display', 'block');
     loadData();
 
-  });
-
-  let header = document.querySelector('header');
-  window.addEventListener('scroll', (e) => {
-    header.classList.toggle('sticky', scrollY > 50);
   });
   $('.hamburger').on('click', function () {
     $('nav').slideDown(500);
@@ -145,9 +143,12 @@ $(document).ready(function () {
     method: 'GET',
     success: function (response) {
       let mealDetail = response.meals[0];
-      console.log(mealDetail);
-      let { strSource, strYoutube, strCategory, strInstructions, strMealThumb } = mealDetail;
+      let { strMeal, strYoutube, strInstructions, strMealThumb } = mealDetail;
       let ingredients = [];
+      console.log(mealDetail);
+      $('.tabs_text_1').text(`${getLocalStorage()}`);
+      $('.tabs_text_2').text(`${strMeal}`);
+      $('.title_detail').text(`${strMeal}`);
       for (let i = 1; i < 20; i++) {
         if (mealDetail['strIngredient' + i]) {
           ingredients.push(`${mealDetail['strMeasure' + i]} / ${mealDetail['strIngredient' + i]}`);
@@ -176,8 +177,14 @@ $(document).ready(function () {
       $('.row_detail_tutorial').append(contentTutorial);
     }
   });
+  let header = document.querySelector('header');
+  let buttonTop = document.querySelector('.buttonTop');
+  window.addEventListener('scroll', (e) => {
+    header.classList.toggle('sticky', scrollY > 50);
+    buttonTop.classList.toggle('show', scrollY > 70);
+  });
+  buttonTop.addEventListener('click', () => {
+    document.documentElement.scrollTop = 0;
+  });
 });
-// window.addEventListener('DOMContentLoaded', () => {
-//   localStorage.clear();
-// })
 

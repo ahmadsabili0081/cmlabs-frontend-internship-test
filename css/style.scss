@@ -23,6 +23,32 @@ sans-serif;
   overflow-x: hidden;
   position: relative;
 
+  .buttonTop {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--color-text-banner);
+    right: -50%;
+    z-index: 10;
+    cursor: pointer;
+    transition: 0.5s ease;
+
+    i {
+      color: var(--white--);
+    }
+  }
+
+  .buttonTop.show {
+    right: 10px;
+    transition: 0.5s ease;
+  }
+
   header.header {
     width: 100%;
     z-index: 1;
@@ -185,8 +211,25 @@ sans-serif;
       max-width: 1000px;
       margin: 0px auto;
 
+      .tabs {
+        font-family: $fontPoppins;
+
+        span {
+          display: inline-block;
+          font-size: 12px;
+        }
+      }
+
+      h1 {
+        margin: 20px;
+        font-family: $fontPoppins;
+        color: var(--color-text-banner);
+      }
+
       .row__kategoriDetail {
+        border-top: 1px solid var(--color-text-banner);
         display: flex;
+        padding: 20px 0px;
         justify-content: flex-start;
         align-items: center;
         flex-direction: row;
@@ -263,10 +306,31 @@ sans-serif;
       max-width: 1200px;
       margin: 30px auto;
 
+      .tabs {
+        font-family: $fontPoppins;
+        margin: 0px 50px;
+
+        span {
+          display: inline-block;
+          font-size: 12px;
+        }
+      }
+
+      h1 {
+        margin: 20px 50px;
+        font-family: $fontPoppins;
+        color: var(--color-text-banner);
+      }
+
       .row_detail {
+        margin: 0px auto;
+        width: 90%;
+        border-top: 1px solid var(--color-text-banner);
+        padding: 20px 0px;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: flex-start;
+
 
         .box__detail {
           width: 500px;
@@ -533,6 +597,15 @@ sans-serif;
 
       .container__kategoriDetail {
         width: 100%;
+        padding: 0px 10px;
+
+        .tabs {
+          margin-top: 10px;
+        }
+
+        h1 {
+          margin-left: 0;
+        }
 
         .row__kategoriDetail {
           margin-top: 20px;
@@ -553,7 +626,17 @@ sans-serif;
       .containerDetail {
         width: 100%;
 
+        .tabs {
+          margin-top: 10px;
+          margin-left: 0px;
+        }
+
+        h1 {
+          margin-left: 0px;
+        }
+
         .row_detail {
+          width: 100%;
           flex-direction: column;
 
           .box__detail {
